@@ -1,0 +1,55 @@
+name: CI — Angular Build & Validation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  angular-ci:
+    name: Angular CI (ng build)
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Get source code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Setup Node.js (Angular 21 compatible)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.19.0
+          cache: 'npm'
+
+      # 3️⃣ Install dependencies cleanly
+      - name: Install dependencies
+        run: npm ci
+
+      # 4️⃣ Install Angular CLI globally
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+
+      # 5️⃣ Lint the project (if configured)
+      - name: Run lint
+        run: ng lint
+        continue-on-error: false
+
+      # 6️⃣ Run unit tests (headless Chrome)
+      - name: Run unit tests
+        run: ng test --watch=false --browsers=ChromeHeadless
+        continue-on-error: false
+
+      # 7️⃣ Build Angular app (production)
+      - name: Build Angular app
+        run: ng build --configuration production
+
+      # 8️⃣ Upload build output
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: angular-dist
+          path: dist/**
