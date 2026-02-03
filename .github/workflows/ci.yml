@@ -38,9 +38,9 @@ jobs:
         run: ng lint
         continue-on-error: false
 
-      # 6️⃣ Run unit tests (headless Chrome)
+      # 6️⃣ Run unit tests
       - name: Run unit tests
-        run: ng test --watch=false --browsers=ChromeHeadless
+        run: ng test --watch=false
         continue-on-error: false
 
       # 7️⃣ Build Angular app (production)
