@@ -1,3 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "tailwindcss";
+@import 'tailwindcss';
+
+body {
+  background-image: url('../public/images/bg-main-desktop.png');
+  background-repeat: no-repeat;
+  background-position:left;
+  background-size: auto;
+  background-attachment: fixed;
+  
+}
+
+@media (max-width: 800px) {
+  body {
+    background-image: url('../public/images/bg-main-mobile.png');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100% ;
+    background-attachment: fixed;
+  }
+}
