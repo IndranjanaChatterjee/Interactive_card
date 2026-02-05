@@ -3,4 +3,11 @@
     background-position: center;
     background-repeat: no-repeat;
     background-position: fixed;
+    margin-right: 23rem;
+}
+@media (max-width:1020px) {
+    .color{
+        margin-right: 0rem;
+    }
+    
 }

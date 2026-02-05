@@ -1,0 +1,16 @@
+.gray{
+    background-image: url('./../../../../public/images/bg-card-back.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position: fixed;
+    background-size: cover;
+    
+    background-color: black;
+     margin-right: 12rem;
+}
+@media (max-width:1020px) {
+    .gray{
+        margin-right: 0rem;
+    }
+    
+}
