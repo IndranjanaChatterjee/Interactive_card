@@ -12,3 +12,12 @@
     }
     
 }
+@media (max-width:400px) {
+    .color{
+        position: absolute;
+        top: 10rem;
+        left: -1.2rem;
+        z-index: 10;
+    }
+    
+}

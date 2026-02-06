@@ -22,7 +22,7 @@ body {
     background-repeat: no-repeat;
     background-position: top;
     background-size: 100% 50%;
-    background-attachment: fixed;
+    background-attachment: scroll;
     min-height: 100vh;
     display: flex;
     justify-content: center;
