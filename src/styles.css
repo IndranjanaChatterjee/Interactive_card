@@ -16,12 +16,12 @@ body {
   font-family: "Space Grotesk", sans-serif;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
   body {
     background-image: url('../public/images/bg-main-mobile.png');
     background-repeat: no-repeat;
     background-position: top;
-    background-size: 100%;
+    background-size: 100% 50%;
     background-attachment: fixed;
     min-height: 100vh;
     display: flex;

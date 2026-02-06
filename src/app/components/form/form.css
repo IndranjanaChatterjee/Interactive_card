@@ -1,0 +1,23 @@
+input{
+    outline: none;
+    border: 1px solid rgb(201, 199, 199);
+    padding:0.7rem 1rem;
+    border-radius: 0.5rem;
+    
+}
+label{
+    font-size: 0.8rem;
+    margin: 0.5rem 0rem;
+    font-weight: 500;
+    letter-spacing: 0.15rem;
+}
+::placeholder{
+    font-size: 1.1rem;
+    
+}
+.error{
+    color: red;
+    margin: 0.5rem 0rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
