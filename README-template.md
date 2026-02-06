@@ -37,7 +37,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Solution Url](https://github.com/IndranjanaChatterjee/Interactive_card)
-- Live Site URL: [live site URL](https://your-live-site-url.com)
+- Live Site URL: [live site URL](https://interactive-card-two-kappa.vercel.app/)
 
 ## My process
 
@@ -57,6 +57,6 @@ Users should be able to:
 ## Author
 
 - Website - [Indranjana Chatterjee](https://www.indranjanachatterjee.me/)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/IndranjanaChatterjee)
+- Frontend Mentor - [@IndranjanaChatterjee](https://www.frontendmentor.io/profile/IndranjanaChatterjee)
 
 
