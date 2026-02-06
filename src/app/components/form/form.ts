@@ -3,7 +3,7 @@ import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { numericOnlyValidator } from '../../validators/numeric-only.validator';
 import { ThankyouCard } from '../thankyou-card/thankyou-card';
-import { Card, CardData } from '../../services/card-data';
+import { CardData } from '../../services/card-data';
 import { ThankyouState } from '../../services/thankyou-state';
 
 @Component({
@@ -28,14 +28,14 @@ export class Form {
   onlyDigits(event:Event)
   {
     const input=event.target as HTMLInputElement;
-    let value=input.value.replace(/\D/g, '');
+    const value=input.value.replace(/\D/g, '');
     input.value=value;
     this.formData.get('month')?.setValue(value,{ emitEvent: false });
   }
   onlyDigitsyear(event:Event)
   {
     const input=event.target as HTMLInputElement;
-    let value=input.value.replace(/\D/g, '');
+    const value=input.value.replace(/\D/g, '');
     input.value=value;
     this.formData.get('year')?.setValue(value,{ emitEvent: false });
   }
