@@ -3,7 +3,7 @@ import { Component, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { numericOnlyValidator } from '../../validators/numeric-only.validator';
 import { ThankyouCard } from '../thankyou-card/thankyou-card';
-import { Card, CardData } from '../../services/card-data';
+import {  CardData } from '../../services/card-data';
 import { ThankyouState } from '../../services/thankyou-state';
 
 @Component({
