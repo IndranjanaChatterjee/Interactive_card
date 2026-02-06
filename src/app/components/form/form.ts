@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { numericOnlyValidator } from '../../validators/numeric-only.validator';
 import { ThankyouCard } from '../thankyou-card/thankyou-card';
-import { CardData } from '../../services/card-data';
+import { Card, CardData } from '../../services/card-data';
 import { ThankyouState } from '../../services/thankyou-state';
 
 @Component({
@@ -14,8 +14,10 @@ import { ThankyouState } from '../../services/thankyou-state';
 })
 export class Form {
 
-  constructor(private card:CardData,public thank:ThankyouState)
-  {}
+
+   private card = inject(CardData);
+  public thank = inject(ThankyouState);
+
   formData = new FormGroup({
     name: new FormControl('', Validators.required),
     number: new FormControl('', [Validators.required, numericOnlyValidator]),
@@ -58,11 +60,16 @@ export class Form {
 
 
   ngOnInit() {
-    // 🔥 LIVE push to service
-    this.formData.valueChanges.subscribe(value => {
-      this.card.updateCard(value as any);
+  this.formData.valueChanges.subscribe(value => {
+    this.card.updateCard({
+      name: value.name ?? '',
+      number: value.number ?? '',
+      month: value.month ?? '',
+      year: value.year ?? '',
+      cvc: value.cvc ?? '',
     });
-  }
+  });
+}
 
   formatCardNumber(event: Event) {
     const input = event.target as HTMLInputElement;

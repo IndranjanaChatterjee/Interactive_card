@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { CardData } from '../../services/card-data';
@@ -9,7 +9,7 @@ import { CardData } from '../../services/card-data';
   templateUrl: './colorfulcard.html',
   styleUrl: './colorfulcard.css',
 })
-export class Colorfulcard {
+export class Colorfulcard implements OnInit,OnDestroy{
   @Input() form!:FormGroup
   displayNumber = '0000 0000 0000 0000';
   displayName = 'JANE APPLESEED';

@@ -22,7 +22,7 @@ export class CardData {
 
   cardData$ = this.cardDataSource.asObservable();
 
-  updateCard(data: Partial<CardData>) {
+  updateCard(data: Partial<Card>) {
     this.cardDataSource.next({
       ...this.cardDataSource.value,
       ...data

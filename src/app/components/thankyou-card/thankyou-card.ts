@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ThankyouState } from '../../services/thankyou-state';
 
 @Component({
@@ -8,9 +8,7 @@ import { ThankyouState } from '../../services/thankyou-state';
   styleUrl: './thankyou-card.css',
 })
 export class ThankyouCard {
-  constructor(private thank:ThankyouState)
-  {}
-
+  private thank = inject(ThankyouState);
   changeState()
   {
     this.thank.thankyouVisible.set(false);

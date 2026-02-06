@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { CardData } from '../../services/card-data';
@@ -9,7 +9,7 @@ import { CardData } from '../../services/card-data';
   templateUrl: './gray-card.html',
   styleUrl: './gray-card.css',
 })
-export class GrayCard {
+export class GrayCard implements OnInit,OnDestroy{
   @Input() form!: FormGroup;
   displayCVC = '000';
 
@@ -22,6 +22,9 @@ export class GrayCard {
         
     });
 
+  }
+  ngOnDestroy() {
+    this.sub?.unsubscribe();
   }
   
 
