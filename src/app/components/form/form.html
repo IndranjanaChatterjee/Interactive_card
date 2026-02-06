@@ -1,99 +1,101 @@
-@if(thankyouCard()===false)
-{
+@if (thank.thankyouVisible() === false) {
   <form
-  action=""
-  class="flex flex-col justify-center items-start gap-6 md:p-6 py-6"
-  [formGroup]="formData"
-  (ngSubmit)="onSubmit()"
->
-  <div class="flex flex-col justify-center items-start">
-    <label for="name">CARDHOLDER NAME</label>
-    <input
-      type="text"
-      name=""
-      id="name"
-      placeholder="e.g.Jane Appleseed"
-      class="md:w-120"
-      formControlName="name"
-    />
-    @if (formData.get('name')?.hasError('required') && formData.get('name')?.touched) {
-      <div class="error">Can't be blank</div>
-    }
-  </div>
-  <div class="flex flex-col justify-center items-start">
-    <label for="number">CARD NUMBER</label>
-    <input
-      type="text"
-      id="number"
-      placeholder="e.g. 1234 5678 9123 0000"
-      maxlength="19"
-      (input)="formatCardNumber($event)"
-      class="md:w-120"
-      formControlName="number"
-    />
-    @if (formData.get('number')?.hasError('required') && formData.get('number')?.touched) {
-      <div class="error">Can't be blank</div>
-    } @else if (formData.get('number')?.hasError('nonNumeric') && formData.get('number')?.touched) {
-      <div class="error">Wrong format, numbers only</div>
-    }
-  </div>
-  <div class="flex flex-row justify-between items-start gap-1 md:gap-3.5 w-full">
+    action=""
+    class="flex flex-col justify-center items-start gap-6 md:p-6 py-6"
+    [formGroup]="formData"
+    (ngSubmit)="onSubmit()"
+  >
     <div class="flex flex-col justify-center items-start">
-      <label for="dt">EXP. DATE (MM/YY)</label>
-      <div class="flex flex-row justify-center items-center gap-2">
-        <input
-          type="text"
-          name=""
-          id="dt"
-          placeholder="MM"
-          class="w-18 p-1.5 text-center"
-          maxlength="2"
-          formControlName="month"
-        />
-        <input
-          type="text"
-          name=""
-          id="dt"
-          placeholder="YY"
-          class="w-18 p-1.5 text-center"
-          maxlength="2"
-          formControlName="year"
-        />
-      </div>
-      @if((formData.get('month')?.hasError('required') && formData.get('month')?.touched)||(formData.get('year')?.hasError('required') && formData.get('year')?.touched))
-      {
-        <div class="error">Can't be blank</div>
-      }
-    </div>
-    <div class="flex flex-col justify-center items-start">
-      <label for="cvc">CVC</label>
+      <label for="name">CARDHOLDER NAME</label>
       <input
         type="text"
         name=""
-        id="cvc"
-        placeholder="e.g.123"
-        maxlength="3"
-        class="w-24 p-1.5 md:w-full"
-        formControlName="cvc"
+        id="name"
+        placeholder="e.g.Jane Appleseed"
+        class="md:w-120"
+        formControlName="name"
+        maxlength="25"
       />
-      @if((formData.get('cvc')?.hasError('required') && formData.get('cvc')?.touched))
-      {
+      @if (formData.get('name')?.hasError('required') && formData.get('name')?.touched) {
         <div class="error">Can't be blank</div>
       }
     </div>
-  </div>
+    <div class="flex flex-col justify-center items-start">
+      <label for="number">CARD NUMBER</label>
+      <input
+        type="text"
+        id="number"
+        placeholder="e.g. 1234 5678 9123 0000"
+        maxlength="19"
+        (input)="formatCardNumber($event)"
+        class="md:w-120"
+        formControlName="number"
+      />
+      @if (formData.get('number')?.hasError('required') && formData.get('number')?.touched) {
+        <div class="error">Can't be blank</div>
+      } @else if (
+        formData.get('number')?.hasError('nonNumeric') && formData.get('number')?.touched
+      ) {
+        <div class="error">Wrong format, numbers only</div>
+      }
+    </div>
+    <div class="flex flex-row justify-between items-start gap-1 md:gap-3.5 w-full">
+      <div class="flex flex-col justify-center items-start">
+        <label for="dt">EXP. DATE (MM/YY)</label>
+        <div class="flex flex-row justify-center items-center gap-2">
+          <input
+            type="text"
+            name=""
+            id="dt"
+            placeholder="MM"
+            class="w-18 p-1.5 text-center"
+            maxlength="2"
+            formControlName="month"
+            (input)="onlyDigits($event)"
+          />
+          <input
+            type="text"
+            name=""
+            id="dt"
+            placeholder="YY"
+            class="w-18 p-1.5 text-center"
+            maxlength="2"
+            formControlName="year"
+            (input)="onlyDigitsyear($event)"
+          />
+        </div>
+        @if (
+          (formData.get('month')?.hasError('required') && formData.get('month')?.touched) ||
+          (formData.get('year')?.hasError('required') && formData.get('year')?.touched)
+        ) {
+          <div class="error">Can't be blank</div>
+        }
+      </div>
+      <div class="flex flex-col justify-center items-start">
+        <label for="cvc">CVC</label>
+        <input
+          type="text"
+          id="cvc"
+          placeholder="e.g.123"
+          maxlength="3"
+          class="w-24 p-1.5 md:w-full"
+          formControlName="cvc"
+          (input)="onThreeDigitChange($event)"
+        />
+        @if (formData.get('cvc')?.hasError('required') && formData.get('cvc')?.touched) {
+          <div class="error">Can't be blank</div>
+        }
+      </div>
+    </div>
 
-  <button
-    class="w-full text-center bg-[#220930] text-white py-3 rounded-lg hover:cursor-pointer hover:bg-[#320c49]"
-  >
-    Confirm
-  </button>
-</form>
-}
-@else if (thankyouCard()===true) {
+    <button
+      class="w-full text-center bg-[#220930] text-white py-3 rounded-lg hover:cursor-pointer hover:bg-[#320c49]"
+    >
+      Confirm
+    </button>
+  </form>
+} @else if (thank.thankyouVisible() === true) {
   <div>
-  <app-thankyou-card></app-thankyou-card>
+    <app-thankyou-card></app-thankyou-card>
   </div>
-
 }
-

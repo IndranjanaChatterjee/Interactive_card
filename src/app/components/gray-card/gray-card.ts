@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { CardData } from '../../services/card-data';
 
 @Component({
   selector: 'app-gray-card',
@@ -7,5 +10,19 @@ import { Component } from '@angular/core';
   styleUrl: './gray-card.css',
 })
 export class GrayCard {
+  @Input() form!: FormGroup;
+  displayCVC = '000';
+
+  private sub?: Subscription;
+   constructor(private cardService: CardData) {}
+  ngOnInit(){
+    this.sub = this.cardService.cardData$.subscribe(data => {
+      this.displayCVC = data.cvc || '000';
+     
+        
+    });
+
+  }
+  
 
 }
