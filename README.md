@@ -1,59 +1,62 @@
-# InteractiveCard
+#  Interactive card details form
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+This is a solution to the [Interactive card details form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Development server
+## Table of contents
 
-To start a local development server, run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+- [Author](#author)
 
-```bash
-ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Overview
 
-```bash
-ng generate component component-name
-```
+### The challenge
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Users should be able to:
 
-```bash
-ng generate --help
-```
+- Fill in the form and see the card details update in real-time
+- Receive error messages when the form is submitted if:
+  - Any input field is empty
+  - The card number, expiry date, or CVC fields are in the wrong format
+- View the optimal layout depending on their device's screen size
+- See hover, active, and focus states for interactive elements on the page
 
-## Building
+### Screenshot
 
-To build the project run:
+![](./public/Screenshot.png)
 
-```bash
-ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
+### Links
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+- Solution URL: [Solution Url](https://github.com/IndranjanaChatterjee/Interactive_card)
+- Live Site URL: [live site URL](https://interactive-card-two-kappa.vercel.app/)
 
-```bash
-ng test
-```
+## My process
 
-## Running end-to-end tests
+### Built with
 
-For end-to-end (e2e) testing, run:
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [Angular](https://angular.dev/)
+- [Docker](https://docs.docker.com/)
+- [Tailwind Css](https://tailwindcss.com/)
 
-```bash
-ng e2e
-```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Additional Resources
+## Author
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Website - [Indranjana Chatterjee](https://www.indranjanachatterjee.me/)
+- Frontend Mentor - [@IndranjanaChatterjee](https://www.frontendmentor.io/profile/IndranjanaChatterjee)
+
+
